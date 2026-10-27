@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<robot name="SimpleRobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find SimpleRobot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find SimpleRobot_description)/urdf/SimpleRobot.trans" />
+<xacro:include filename="$(find SimpleRobot_description)/urdf/SimpleRobot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.07500000001124713 0.0375 0.006339005973019191" rpy="0 0 0"/>
+    <mass value="0.2516734502470381"/>
+    <inertia ixx="0.000189" iyy="0.000591" izz="0.000764" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://SimpleRobot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://SimpleRobot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Wheel__1__1">
+  <inertial>
+    <origin xyz="2.235174077075408e-10 -0.004922680412371122 1.4902777276115664e-10" rpy="0 0 0"/>
+    <mass value="0.04037731958026277"/>
+    <inertia ixx="8e-06" iyy="1.3e-05" izz="8e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.015 -0.09 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://SimpleRobot_description/meshes/Wheel__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.015 -0.09 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://SimpleRobot_description/meshes/Wheel__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Wheel_1">
+  <inertial>
+    <origin xyz="2.2353357879978386e-10 0.004922680412371129 1.490115999341901e-10" rpy="0 0 0"/>
+    <mass value="0.04037731958026277"/>
+    <inertia ixx="8e-06" iyy="1.3e-05" izz="8e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.015 0.015 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://SimpleRobot_description/meshes/Wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.015 0.015 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://SimpleRobot_description/meshes/Wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Wheel__3__1">
+  <inertial>
+    <origin xyz="2.2353358053450734e-10 -0.004922680412371122 1.490116224855953e-10" rpy="0 0 0"/>
+    <mass value="0.04037731958026277"/>
+    <inertia ixx="8e-06" iyy="1.3e-05" izz="8e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.135 -0.09 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://SimpleRobot_description/meshes/Wheel__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.135 -0.09 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://SimpleRobot_description/meshes/Wheel__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Wheel__2__1">
+  <inertial>
+    <origin xyz="2.2353358053450734e-10 0.004922680412371129 1.490115999341901e-10" rpy="0 0 0"/>
+    <mass value="0.04037731958026277"/>
+    <inertia ixx="8e-06" iyy="1.3e-05" izz="8e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.135 0.015 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://SimpleRobot_description/meshes/Wheel__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.135 0.015 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://SimpleRobot_description/meshes/Wheel__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="0.015 0.09 0.01" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Wheel__1__1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="0.015 -0.015 0.01" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Wheel_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="0.135 0.09 0.01" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Wheel__3__1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="0.135 -0.015 0.01" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Wheel__2__1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+</robot>
